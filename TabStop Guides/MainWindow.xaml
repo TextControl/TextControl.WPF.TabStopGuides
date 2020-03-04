@@ -1,0 +1,29 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:WPF="clr-namespace:TXTextControl.WPF;assembly=TXTextControl.WPF"
+        x:Class="TabStop_Guides.MainWindow"
+        Title="MainWindow" Height="1024" Width="800" WindowStartupLocation="CenterScreen" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" >
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Menu Grid.Column="0" Grid.Row="0">
+            <MenuItem Name="FileMenu" Header="File">
+                <MenuItem Header="Load..." Name="FileMenu_Load" Click="FileMenu_Load_Click" />
+            </MenuItem>
+            <MenuItem Name="GuideMenu" Header="Guides">
+                <MenuItem Name="GuideMenu_ShowGuides" Header="Show Tab Guides"  Click="GuideMenu_ShowGuides_Click" LayoutUpdated="GuideMenu_ShowGuides_LayoutUpdated" />
+            </MenuItem>
+        </Menu>
+        <DockPanel Grid.Column="0" Grid.Row="1">
+            <WPF:RulerBar Name="rulerBar1" />
+            <WPF:TextControl Name="textControl" Loaded="textControl_Loaded" ParagraphFormatChanged="textControl_ParagraphFormatChanged" SizeChanged="textControl_SizeChanged" />
+        </DockPanel>
+        <Canvas Name="lines" Grid.Column="0" Grid.Row="1" Background="Transparent" Focusable="False" IsHitTestVisible="False" />
+    </Grid>
+</Window>
